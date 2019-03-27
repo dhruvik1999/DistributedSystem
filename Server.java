@@ -44,10 +44,24 @@ public class Server{
 		String line;
 		Scanner scan = new Scanner(System.in);
 		while(true){
+			int sysnum = scan.nextInt();
 			line = scan.nextLine();
 			System.out.println(line);
-			System.out.println(socketCont);
+			//System.out.println(socketCont);
+			sendMsg(sysnum,line);	
 		}
+	}
+
+	public void  sendMsg(int socketNumber,String msg){
+		try{
+		Socket socket = socketCont.get(socketNumber);
+		DataOutputStream msgOutput = new DataOutputStream(socket.getOutputStream());
+		msgOutput.writeUTF(msg);
+		System.out.println("message sent : " + socketNumber + " : " + msg);
+	}catch(Exception e){
+		System.out.println("Error in sendMsg class : InputThread");
+		System.out.println(e);
+	}
 	}
 }
 
