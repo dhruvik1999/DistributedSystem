@@ -14,7 +14,20 @@ public class Client{
 			String line = " ";
 			while(!line.equals("Over")){
 				System.out.println("Server : " + inputFromServer.readUTF());
-				line = input.readLine();
+				line = "result from client : " + socket;
+
+				long startTime = System.nanoTime();
+				//methodToTime();
+				//int i =0;
+				for(int i=0;i<10000;i++){
+					;
+				}
+				long endTime = System.nanoTime();
+
+				long duration = (endTime - startTime); 
+
+				line = line + "\n" +  Long.toString(duration);
+
 				out.writeUTF(line);
 			}
 

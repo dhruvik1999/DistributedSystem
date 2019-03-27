@@ -43,7 +43,7 @@ public class Server{
 	public void run(){
 		String line;
 		Scanner scan = new Scanner(System.in);
-		tyr{
+		try{
 		while(true){
 			int sysnum = scan.nextInt();
 			line = scan.nextLine();
