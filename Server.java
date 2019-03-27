@@ -43,6 +43,7 @@ public class Server{
 	public void run(){
 		String line;
 		Scanner scan = new Scanner(System.in);
+		tyr{
 		while(true){
 			int sysnum = scan.nextInt();
 			line = scan.nextLine();
@@ -50,17 +51,20 @@ public class Server{
 			//System.out.println(socketCont);
 			sendMsg(sysnum,line);	
 		}
+	}catch(Exception e){
+		System.out.println("Input Formate Error");
+	}
 	}
 
 	public void  sendMsg(int socketNumber,String msg){
 		try{
-		Socket socket = socketCont.get(socketNumber);
-		DataOutputStream msgOutput = new DataOutputStream(socket.getOutputStream());
-		msgOutput.writeUTF(msg);
-		System.out.println("message sent : " + socketNumber + " : " + msg);
-	}catch(Exception e){
-		System.out.println("Error in sendMsg class : InputThread");
-		System.out.println(e);
+			Socket socket = socketCont.get(socketNumber);
+			DataOutputStream msgOutput = new DataOutputStream(socket.getOutputStream());
+			msgOutput.writeUTF(msg);
+			System.out.println("message sent : " + socketNumber + " : " + msg);
+		}catch(Exception e){
+			System.out.println("Error in sendMsg class : InputThread");
+			System.out.println(e);
 	}
 	}
 }
