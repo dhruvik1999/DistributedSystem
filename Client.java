@@ -21,6 +21,7 @@ public class Client{
 				//int i =0;
 				for(int i=0;i<10000;i++){
 					;
+					
 				}
 				long endTime = System.nanoTime();
 
