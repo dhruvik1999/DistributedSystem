@@ -19,7 +19,7 @@ public class Client{
 				long startTime = System.nanoTime();
 				//methodToTime();
 				//int i =0;
-				for(int i=0;i<10000;i++){
+				for(int i=0;i<1000000000;i++){
 					;
 					
 				}
@@ -27,7 +27,8 @@ public class Client{
 
 				long duration = (endTime - startTime); 
 
-				line = line + "\n" +  Long.toString(duration);
+				line = Long.toString(duration);
+				System.out.println(line);
 
 				out.writeUTF(line);
 			}
