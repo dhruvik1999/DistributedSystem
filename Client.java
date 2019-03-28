@@ -13,7 +13,18 @@ public class Client{
 
 			String line = " ";
 			while(!line.equals("Over")){
-				System.out.println("Server : " + inputFromServer.readUTF());
+				String resp = inputFromServer.readUTF(); 
+				String[] arrOfStr = resp.split(" "); 
+
+				System.out.println("Server : " + resp);
+
+				System.out.println(arrOfStr[0] + " " + arrOfStr[1]);
+
+				int l = Integer.parseInt(arrOfStr[0]);
+				int r = Integer.parseInt(arrOfStr[1]);
+
+				System.out.println(l + " " + r);
+
 				line = "result from client : " + socket;
 
 				long startTime = System.nanoTime();

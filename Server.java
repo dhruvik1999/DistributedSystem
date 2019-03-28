@@ -42,7 +42,7 @@ public class Server{
 }
 	static int  individualTime(int sys, int start, int end)
 	{
-		 InputThread.sendMsg(sys, "Take this!!!");	
+		 InputThread.sendMsg(sys, Integer.toString(start) + " " + Integer.toString(end));	
 		 return 1;
 	}
 	static int getTime(double p1, double p2, double p3)
