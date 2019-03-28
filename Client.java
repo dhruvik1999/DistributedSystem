@@ -3,6 +3,16 @@ import java.net.*;
 
 public class Client{
 
+	static long factorial(int l, int r)
+	{
+		int mod = 1000000007;
+		long fact = 1;
+		for(long i=l;i<=r;i++)
+			fact = (fact*i)%mod;
+		
+		return fact; 
+	}
+
 	public static void makeClient(String ip,int port){
 		try{
 			Socket socket = new Socket(ip,port);
@@ -16,30 +26,25 @@ public class Client{
 				String resp = inputFromServer.readUTF(); 
 				String[] arrOfStr = resp.split(" "); 
 
-				System.out.println("Server : " + resp);
+				//System.out.println("Server : " + resp);
 
-				System.out.println(arrOfStr[0] + " " + arrOfStr[1]);
+				//System.out.println(arrOfStr[0] + " " + arrOfStr[1]);
 
 				int l = Integer.parseInt(arrOfStr[0]);
 				int r = Integer.parseInt(arrOfStr[1]);
 
-				System.out.println(l + " " + r);
+				//System.out.println(l + " " + r);
 
 				line = "result from client : " + socket;
-
 				long startTime = System.nanoTime();
-				//methodToTime();
-				//int i =0;
-				for(int i=0;i<1000000000;i++){
-					;
-					
-				}
+				long result = factorial(l, r);
 				long endTime = System.nanoTime();
 
 				long duration = (endTime - startTime); 
 
 				line = Long.toString(duration);
-				System.out.println(line);
+				line = line + " " + Long.toString(result);
+				//System.out.println(line);
 
 				out.writeUTF(line);
 			}
