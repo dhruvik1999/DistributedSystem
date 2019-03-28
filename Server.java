@@ -15,8 +15,9 @@ public class Server{
 			Thread t1 = new InputThread();
 			t1.start();
 
-		while(true){
+		//while(true){
 		
+		for(int i=0;i<1000;i++){
 			Socket socket = server.accept();
 			socketCont.add(socket);
 
@@ -29,14 +30,71 @@ public class Server{
 			Thread thread = new ClientHandler(socket,input,out);
 
 			thread.start();
-		
-	}
+
+			if(i==3){
+				getTime(0.1,0.1,0.1);
+			}
+		}
+	//}
 	}catch(Exception e){
 		System.out.println(e);
 	}
-
+}
+	static int  individualTime(int sys, int start, int end)
+	{
+		 InputThread.sendMsg(sys, "Take this!!!");	
+		 return 1;
+	}
+	static int getTime(double p1, double p2, double p3)
+	{
+		int mx = 100000000;
+		int number = 100000000;
+		int left = number, start = 1;
+		int time[] = new int[4];
+		for(int i=0;i<4;i++)
+			time[i] = mx;
+		if(left > 0 && p1 != 0)
+		{
+			int end = (int)(p1*number);
+			end = number/4;
+			time[0] = individualTime(0, start, start + end-1);
+			left -= end;
+			start += end;
+		}
+		if(left > 0 && p2 != 0)
+		{
+			int end = (int)(p1*number);
+			end = number/4;
+			time[1] = individualTime(1, start, start + end-1);
+			left -= end;
+			start += end;
+		}
+		if(left > 0 && p3 != 0)
+		{
+			int end = (int)(p1*number);
+			end = number/4;
+			time[2] = individualTime(2, start, start + end-1);
+			left -= end;
+			start += end;
+		}
+		if(left > 0)
+		{
+			int end = (int)(p1*number);
+			time[3] = individualTime(3, start, number);
+			left -= end;
+			start += end;
+		}
+		int mxTime = 0;
+		for(int i=0;i<4;i++)
+			mxTime = Math.max(mxTime, time[i]);
+		return mxTime;
 
 	}
+
+
+
+
+
 
 	static class InputThread extends Thread{
 
@@ -56,7 +114,7 @@ public class Server{
 	}
 	}
 
-	public void  sendMsg(int socketNumber,String msg){
+	public static void  sendMsg(int socketNumber,String msg){
 		try{
 			Socket socket = socketCont.get(socketNumber);
 			DataOutputStream msgOutput = new DataOutputStream(socket.getOutputStream());
