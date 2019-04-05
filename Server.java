@@ -41,6 +41,37 @@ public class Server{
 
 			if(i==3){
 				//getTime(0.1,0.1,0.1);
+
+
+
+        int num = 50;
+        long factorial = 1;
+        long mod = 1000000007;
+        long startTime=System.nanoTime();
+        long arr[]=new long[50];
+        for(int i0 = 1; i0 <= num; ++i0)
+        {
+            // factorial = factorial * i;
+            factorial = (factorial*i0)%mod;
+            long endTime=System.nanoTime();
+            arr[i0-1]=endTime-startTime;
+
+        }
+        String temp="";
+        for(int i0=0;i0<50;i0++){
+            System.out.print(arr[i0]+" ");
+            temp = temp + Long.toString(arr[i0])+", ";
+        }
+        try{
+        FileOutputStream fo = new FileOutputStream("times.txt");
+        byte[] by = temp.getBytes();
+        fo.write(by,0,by.length);
+        System.out.printf("Factorial of %d = %d", num, factorial);
+    }catch(Exception e){
+        System.out.println(e);
+    }
+
+
 				double p1, p2;
 int mntime = 100000000;
 double per1=0, per2=0, per3=0, per4=0;
