@@ -27,13 +27,28 @@ public class Server{
 			out = new DataOutputStream(socket.getOutputStream());
 			input = new DataInputStream(socket.getInputStream());
 
-
+			String line1 = input.readUTF();
+			String line2 = input.readUTF();
 			System.out.println("New client connected");
-			System.out.println("From" + socket + "::\n" + input.readUTF());
+			System.out.println("From" + socket + "::\n" + line1);
 			System.out.println("------------------------------------------");
-			System.out.println("From" + socket + "::\n" + input.readUTF());
+			System.out.println("From" + socket + "::\n" + line2);
 
+			line1 = line1 + line2 + "\n";
+	try{
+		/*
+        FileOutputStream fo = new FileOutputStream(Integer.toString(i));
+        byte[] by = line1.getBytes();
+        fo.write(by,0,by.length);
+        */
 
+        BufferedWriter out1 = new BufferedWriter(new FileWriter(Integer.toString(i), true)); 
+            out1.write(line1); 
+            out1.close();
+
+    }catch(Exception e){
+        System.out.println(e);
+    }
 
 			Thread thread = new ClientHandler(socket,input,out);
 
@@ -63,10 +78,12 @@ public class Server{
             temp = temp + Long.toString(arr[i0])+", ";
         }
         try{
-        FileOutputStream fo = new FileOutputStream("times.txt");
-        byte[] by = temp.getBytes();
-        fo.write(by,0,by.length);
-        System.out.printf("Factorial of %d = %d", num, factorial);
+
+        BufferedWriter out1 = new BufferedWriter(new FileWriter("times.txt", true)); 
+            out1.write(temp+"\n"); 
+            out1.close();
+
+       // System.out.printf("Factorial of %d = %d", num, factorial);
     }catch(Exception e){
         System.out.println(e);
     }
