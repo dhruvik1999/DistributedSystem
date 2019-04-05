@@ -21,6 +21,28 @@ public class Client{
 			DataInputStream inputFromServer = new DataInputStream(socket.getInputStream());
 
 
+			Process p;
+			String bashOut="";
+         
+         try{
+         	String[] cmd = { "sh", "./script.sh"};
+         	p = Runtime.getRuntime().exec(cmd); 
+            p.waitFor();
+            BufferedReader reader=new BufferedReader(new InputStreamReader(p.getInputStream())); 
+           	String temp = "";
+           	while((bashOut = reader.readLine()) != null) { 
+            	System.out.println(bashOut);
+            	temp = temp + bashOut;
+            	
+            }
+            out.writeUTF(temp);
+            
+        }catch(Exception e){
+        	System.out.println("Error in script");
+        	System.out.println(e);
+        }
+        	
+
 			String line = " ";
 			while(!line.equals("Over")){
 				String resp = inputFromServer.readUTF(); 

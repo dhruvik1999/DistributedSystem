@@ -21,6 +21,7 @@ public class Server{
 		
 		for(int i=0;i<1000;i++){
 			Socket socket = server.accept();
+
 			socketCont.add(socket);
 
 			out = new DataOutputStream(socket.getOutputStream());
@@ -28,6 +29,7 @@ public class Server{
 
 
 			System.out.println("New client connected");
+			System.out.println("From" + socket + "::\n" + input.readUTF());
 
 			Thread thread = new ClientHandler(socket,input,out);
 
