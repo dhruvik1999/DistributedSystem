@@ -42,7 +42,7 @@ public class Server{
         fo.write(by,0,by.length);
         */
 
-        BufferedWriter out1 = new BufferedWriter(new FileWriter(Integer.toString(i), true)); 
+        BufferedWriter out1 = new BufferedWriter(new FileWriter("data/" + Integer.toString(i) + ".txt", true)); 
             out1.write(line1); 
             out1.close();
 
@@ -79,7 +79,7 @@ public class Server{
         }
         try{
 
-        BufferedWriter out1 = new BufferedWriter(new FileWriter("times.txt", true)); 
+        BufferedWriter out1 = new BufferedWriter(new FileWriter("data/times.txt", true)); 
             out1.write(temp+"\n"); 
             out1.close();
 
@@ -133,7 +133,7 @@ for(p1=0;p1<=100;p1+=1)
 System.out.println("min time : " + mntime);
 System.out.println(per1 + "|" + per2 + "|" + per3 + "|" + (100-(per1 + per2 + per3)));
 
-	BufferedWriter out1 = new BufferedWriter(new FileWriter("ans.txt", true)); 
+	BufferedWriter out1 = new BufferedWriter(new FileWriter("data/ans.txt", true)); 
             out1.write(per1 + "," + per2 + "," + per3 + "," + (100-(per1 + per2 + per3)) + "\n"); 
             out1.close();
 
