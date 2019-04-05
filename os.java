@@ -1,5 +1,9 @@
 
 static final mx = 100000000;
+int individualTime(int sys, int start, int end)
+{
+	return time;	
+}
 
 int getTime(double p1, double p2, double p3)
 {

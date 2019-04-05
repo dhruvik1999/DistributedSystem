@@ -37,9 +37,9 @@ public class Server{
 				//getTime(0.1,0.1,0.1);
 				double p1, p2;
 int mntime = 100000000;
+double per1=0, per2=0, per3=0, per4=0;
 for(p1=0;p1<=100;p1+=1)
 {
-	System.out.println(p1);
 	for(p2=p1;p2<=100;p2+=1)
 	{
 		double lo = p2, hi = 100, m1, m2;
@@ -65,12 +65,19 @@ for(p1=0;p1<=100;p1+=1)
 			m1 = lo+(hi-lo)/3;
 			m2 = lo+2*(hi-lo)/3;
 		}
-		mntime = Math.min(mntime, time1);
-		System.out.println("The minimum time for this is: " + time1);
+		if(time1 < mntime)
+		{
+			mntime = time1;
+			per1 = p1;
+			per2 = p2-p1;
+			per3 = m1-p2;
+			per4 =100-(per1 + per2 + per3);
+		}
 	}
 
 }
 System.out.println("min time : " + mntime);
+System.out.println(per1 + "|" + per2 + "|" + per3 + "|" + (100-(per1 + per2 + per3)));
 			}
 		}
 	//}
@@ -162,7 +169,6 @@ System.out.println("min time : " + mntime);
 			Socket socket = socketCont.get(socketNumber);
 			DataOutputStream msgOutput = new DataOutputStream(socket.getOutputStream());
 			msgOutput.writeUTF(msg);
-			System.out.println("message sent : " + socketNumber + " : " + msg);
 		}catch(Exception e){
 			System.out.println("Error in sendMsg class : InputThread");
 			System.out.println(e);
