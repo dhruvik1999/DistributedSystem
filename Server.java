@@ -132,6 +132,11 @@ for(p1=0;p1<=100;p1+=1)
 }
 System.out.println("min time : " + mntime);
 System.out.println(per1 + "|" + per2 + "|" + per3 + "|" + (100-(per1 + per2 + per3)));
+
+	BufferedWriter out1 = new BufferedWriter(new FileWriter("ans.txt", true)); 
+            out1.write(per1 + "," + per2 + "," + per3 + "," + (100-(per1 + per2 + per3)) + "\n"); 
+            out1.close();
+
 			}
 		}
 	//}
