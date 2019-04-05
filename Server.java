@@ -30,6 +30,10 @@ public class Server{
 
 			System.out.println("New client connected");
 			System.out.println("From" + socket + "::\n" + input.readUTF());
+			System.out.println("------------------------------------------");
+			System.out.println("From" + socket + "::\n" + input.readUTF());
+
+
 
 			Thread thread = new ClientHandler(socket,input,out);
 

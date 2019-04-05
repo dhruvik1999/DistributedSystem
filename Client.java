@@ -38,12 +38,20 @@ public class Client{
             out.writeUTF(temp);
             
         }catch(Exception e){
-        	System.out.println("Error in script");
+        	System.out.println("Error in bash");
         	System.out.println(e);
         }
+        String line = " ";
+
+        long startTime0 = System.nanoTime();
+        factorial(0,50);
+        long endTime0 = System.nanoTime();
+        long duration0 = (endTime0 - startTime0); 
+		line = Long.toString(duration0);
+		out.writeUTF(line);
         	
 
-			String line = " ";
+			line = " ";
 			while(!line.equals("Over")){
 				String resp = inputFromServer.readUTF(); 
 				String[] arrOfStr = resp.split(" "); 
