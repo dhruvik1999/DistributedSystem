@@ -8,7 +8,7 @@ public class Server{
 	static ArrayList<Thread> threadCont = new ArrayList<Thread>();
 	public static void main(String args[]){
 		try{
-			ServerSocket server = new ServerSocket(5001);
+			ServerSocket server = new ServerSocket(5004);
 			DataInputStream input;
 			DataOutputStream out;
 			
@@ -84,8 +84,11 @@ public class Server{
             out1.close();
 
        // System.out.printf("Factorial of %d = %d", num, factorial);
+
+            
     }catch(Exception e){
         System.out.println(e);
+        //System.exit(0);
     }
 
 
@@ -136,12 +139,14 @@ System.out.println(per1 + "|" + per2 + "|" + per3 + "|" + (100-(per1 + per2 + pe
 	BufferedWriter out1 = new BufferedWriter(new FileWriter("data/ans.txt", true)); 
             out1.write(per1 + "," + per2 + "," + per3 + "," + (100-(per1 + per2 + per3)) + "\n"); 
             out1.close();
-
+            System.exit(0);
 			}
 		}
 	//}
 	}catch(Exception e){
 		System.out.println(e);
+	}finally{
+		System.exit(0);
 	}
 }
 	static int individualTime(int sys, int start, int end)
@@ -162,7 +167,7 @@ System.out.println(per1 + "|" + per2 + "|" + per3 + "|" + (100-(per1 + per2 + pe
 	static int getTime(double p1, double p2, double p3)
 	{
 		int mx = 100000000;
-		int number = 1000;
+		int number = 100;
 		int left = number, start = 1;
 		int time[] = new int[4];
 		for(int i=0;i<4;i++)
