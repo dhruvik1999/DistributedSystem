@@ -64,7 +64,7 @@ public class Server{
     }
 
     try{
-                    BufferedWriter out1 = new BufferedWriter(new FileWriter("data/dataClients.txt", true)); 
+                    BufferedWriter out1 = new BufferedWriter(new FileWriter("data/input.txt", true)); 
                     out1.write(line+"\n"); 
                     out1.close();
                 }catch(Exception e){
