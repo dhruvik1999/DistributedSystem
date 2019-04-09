@@ -50,35 +50,6 @@ public class Client{
 		line = Long.toString(duration0);
 		out.writeUTF(line);
         	
-
-			line = " ";
-			while(!line.equals("Over")){
-				String resp = inputFromServer.readUTF(); 
-				String[] arrOfStr = resp.split(" "); 
-
-				//System.out.println("Server : " + resp);
-
-				//System.out.println(arrOfStr[0] + " " + arrOfStr[1]);
-
-				int l = Integer.parseInt(arrOfStr[0]);
-				int r = Integer.parseInt(arrOfStr[1]);
-
-				//System.out.println(l + " " + r);
-
-				line = "result from client : " + socket;
-				long startTime = System.nanoTime();
-				long result = factorial(l, r);
-				long endTime = System.nanoTime();
-
-				long duration = (endTime - startTime); 
-
-				line = Long.toString(duration);
-				line = line + " " + Long.toString(result);
-				//System.out.println(line);
-
-				out.writeUTF(line);
-			}
-
 		}catch(Exception e){
 			System.out.println(e);
 		}

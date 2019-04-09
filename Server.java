@@ -8,7 +8,7 @@ public class Server{
 	static ArrayList<Thread> threadCont = new ArrayList<Thread>();
 	public static void main(String args[]){
 		try{
-			ServerSocket server = new ServerSocket(5004);
+			ServerSocket server = new ServerSocket(5005);
 			DataInputStream input;
 			DataOutputStream out;
 			
