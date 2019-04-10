@@ -1,0 +1,61 @@
+26
+20
+19
+33
+Connected
+&
+>>
+before : 2748
+<<
+after : 2175
+Connected
+&
+>>
+before : 4022
+<<
+after : 3231
+Connected
+&
+>>
+before : 14523
+<<
+after : 5750
+Connected
+&
+>>
+before : 17281
+<<
+after : 9386
+
+----------------------------
+
+
+28
+23
+20
+27
+Connected
+&
+>>
+before : 2890
+<<
+after : 2408
+Connected
+&
+>>
+before : 12501
+<<
+after : 4866
+Connected
+&
+>>
+before : 13505
+<<
+after : 8856
+Connected
+&
+>>
+before : 18693
+<<
+after : 7234
+

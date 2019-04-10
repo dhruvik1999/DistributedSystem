@@ -44,6 +44,9 @@ public class Client{
 		l = Integer.parseInt(inputFromServer.readUTF());
 		r = Integer.parseInt(inputFromServer.readUTF());
 
+		System.out.println(l);
+			System.out.println(r);
+
 		line = " ";
         startTime0 = System.nanoTime();
         factorial(l,r);
