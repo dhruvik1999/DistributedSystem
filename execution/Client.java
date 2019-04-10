@@ -31,7 +31,7 @@ public class Client{
             BufferedReader reader=new BufferedReader(new InputStreamReader(p.getInputStream())); 
            	String temp = "";
            	while((bashOut = reader.readLine()) != null) { 
-            	System.out.println(bashOut);
+            	System.out.println("TOP parameters form client : " + bashOut);
             	temp = temp + bashOut;
             	
             }

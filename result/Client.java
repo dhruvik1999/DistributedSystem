@@ -24,14 +24,7 @@ public class Client{
 			l = Integer.parseInt(inputFromServer.readUTF());
 			r = Integer.parseInt(inputFromServer.readUTF());
 
-			System.out.println(l);
-			System.out.println(r);
 
-
-
-
-
-     
         String line = " ";
         long startTime0 = System.nanoTime();
         factorial(l,r);
@@ -39,13 +32,10 @@ public class Client{
         long duration0 = (endTime0 - startTime0); 
 		line = Long.toString(duration0);
 		out.writeUTF(line);
-		System.out.println("Equal distribution : " + line);
+		System.out.println("\nTIME for Equal Distribution : " + line);
 
 		l = Integer.parseInt(inputFromServer.readUTF());
 		r = Integer.parseInt(inputFromServer.readUTF());
-
-		System.out.println(l);
-			System.out.println(r);
 
 		line = " ";
         startTime0 = System.nanoTime();
@@ -54,7 +44,7 @@ public class Client{
         duration0 = (endTime0 - startTime0); 
 		line = Long.toString(duration0);
 		out.writeUTF(line);
-		System.out.println("ML distribution : " + line);
+		System.out.println("\nTIME for ML Distribution : " + line);
 
 
         	

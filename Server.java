@@ -29,10 +29,10 @@ public class Server{
 
 			String line1 = input.readUTF();
 			String line2 = input.readUTF();
-			System.out.println("New client connected");
-			System.out.println("From" + socket + "::\n" + line1);
+			System.out.println("\n\nNew client connected");
+			System.out.println("TOP parameters : " + socket + "::\n" + line1 + "\n");
+			System.out.println("TIME UNIT : " + socket + "::\n" + line2);
 			System.out.println("------------------------------------------");
-			System.out.println("From" + socket + "::\n" + line2);
 
 			line1 = line1 + line2 + "\n";
 	try{

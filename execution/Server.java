@@ -23,10 +23,10 @@ public class Server{
 
             String line1 = input.readUTF();
             String line2 = input.readUTF();
-            System.out.println("New client connected");
-            System.out.println("From" + socket + "::\n" + line1);
+            System.out.println("\n\n New client connected");
+            System.out.println("TOP parameters form client : " + socket + "::\n" + line1 + "\n");
+            System.out.println("time unit for client : " + socket + "::\n" + line2);
             System.out.println("------------------------------------------");
-            System.out.println("From" + socket + "::\n" + line2);
 
             line = line +  line1  + line2 + ",";
     
